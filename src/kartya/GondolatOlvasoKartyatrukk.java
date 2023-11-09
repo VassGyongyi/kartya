@@ -1,14 +1,19 @@
-package gondolatolvasokartyatrukk;
+package kartya;
 
 import java.util.Scanner;
 
 public class GondolatOlvasoKartyatrukk {
 
     static Scanner sc = new Scanner(System.in);
-    static final int MERET = 22;
-    static String[] pakli = new String[MERET];
+     final int MERET = 22;
+     String[] pakli = new String[MERET];
     
     public static void main(String[] args) {
+        //GondolatOlvasoKartyatrukk prg = new GondolatOlvasoKartyatrukk();
+       // prg.jatek();egyik megoldás ez a két sor
+       new GondolatOlvasoKartyatrukk().jatek();
+    }
+    private void jatek(){
         feltolt();
         for (int i = 0; i < 3; i++) {
             kirak();
@@ -18,7 +23,7 @@ public class GondolatOlvasoKartyatrukk {
         ezVolt();
     }
 
-    private static void feltolt() {
+    private  void feltolt() {
         String[] szinek = {"P", "T", "Z", "M"};
         String[] ertekek = {"Ász", "Kir", "Fel", "X", "IX", "VIII"};
 
@@ -30,7 +35,7 @@ public class GondolatOlvasoKartyatrukk {
         }
     }
     
-    private static void kirak() {
+    private  void kirak() {
         for (int i = 1; i < pakli.length; i++) {
             System.out.printf("%-7s", pakli[i]);
             if(i % 3 == 0){
@@ -39,7 +44,7 @@ public class GondolatOlvasoKartyatrukk {
         }
     }
 
-    private static int melyik() {
+    private  int melyik() {
         boolean jo;
         int oszlop;
         do{
@@ -51,7 +56,7 @@ public class GondolatOlvasoKartyatrukk {
         return oszlop;
     }
 
-    private static void kever(int oszlop) {
+    private  void kever(int oszlop) {
         //a választott oszlop középre kerüljön
         String[] uj = new String[MERET];
         switch(oszlop){
@@ -80,7 +85,7 @@ public class GondolatOlvasoKartyatrukk {
         pakli = uj;
     }
 
-    private static void ezVolt() {
+    private  void ezVolt() {
         System.out.println("A gondolt lap: " + pakli[11]);
     }
     
